@@ -1,8 +1,8 @@
 const express = require('express');
 
 const{ getAllFromDatabase, getFromDatabaseById, addToDatabase,
-updateInstanceInDatabase, deleteFromDatabasebyId, deleteAllFromDatabase} =
- require('./db');
+updateInstanceInDatabase, deleteFromDatabasebyId, deleteAllFromDatabase,
+checkMillionDollarIdea} = require('./db');
 
 ideasRouter = express.Router();
 

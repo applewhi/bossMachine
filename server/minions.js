@@ -58,11 +58,14 @@ minionsRouter.put('/:minionId', (req, res, next) => {
 });
 
 //get an array of all work for the specified minion
-
+minionsRouter.get('/:minionId/work', (req, res, next) => {
+  res.send(getAllFromDatabase('works'));
+});
 
 //create a new work object and save it to the Database
-
-
+/*minionRouter.post('/:minionId/work', (req, res, next) => {
+    addToDatabase('works', {})
+});/*
 //update a single work by id
 
 
