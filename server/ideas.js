@@ -23,8 +23,8 @@ ideasRouter.get('/', (req, res, next) => {
 });
 
 //create a new minion and save it to the addToDatabase
-ideasRouter.post('/', (req, res, next) => {
-  res.status(201).send(addToDatabase('ideas', req.body));
+ideasRouter.post('/', checkMillionDollarIdea, (req, res, next) => {
+    res.status(201).send(addToDatabase('ideas', req.body));
 });
 
 //to get a single minion by id
@@ -33,14 +33,14 @@ ideasRouter.get('/:ideaId', (req, res, next) => {
 });
 
 //to update a single minion by id
-ideasRouter.put('/:ideaId', (req, res, next) => {
+ideasRouter.put('/:ideaId', checkMillionDollarIdea, (req, res, next) => {
   let updatedMinionInstance = updateInstanceInDatabase('ideas', req.body);
 
   res.send(updatedMinionInstance);
 });
 
 //to delete a single minion by id
-ideasRouter.put('/:ideaId', (req, res, next) => {
+ideasRouter.delete('/:ideaId', (req, res, next) => {
   let updatedMinionInstance = deleteFromDatabasebyId('ideas', req.body.id);
 
   if (updatedMinionInstance) {
